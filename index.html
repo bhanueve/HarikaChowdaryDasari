@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" /> 
+        <meta name="viewport" content="width=device-width" />
+        <title>Harika MSE 551</title>
+        <link href="./css/style.css" rel="stylesheet">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <header id="home">
+            <h1>MSE 551 Laboratory Experiment 5 (Materials Characterization)</h1>
+            <h2>Ultra-Violet, Visible, and Near-Infrared Spectroscopy for the Characterization of Materials</h2>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#components">Components</a></li>
+                <li><a href="#samples">Samples</a></li>
+                <li><a href="#calculations">Calculations</a></li>
+            </ul>
+        </nav>
+        <main>
+            <article>
+                <h3>Introduction</h3>
+                <p>
+                    Ultraviolet, visible and near-infrared, UV-VIS-Near-IR, spectroscopy is a powerful tool for characterizing the optical properties of materials. At the short wavelength, UV/VIS, end of the spectrum the spectrometer can be used to determine the short wavelength cut-off the material. At the long wavelength end, near-IR, the spectrometer can be used to determine the long wavelength cut-off of the material. In between these two limits the spectrometer can be used to characterize the optical transitions that occur within the material being tested. For example, transition metal ions doped into a transparent matrix such as a glass give rise to optical color centers that color the material. Co+2 ions from a small doping of cobalt chloride or cobalt oxide, give a glass a dark blue color due to the strong absorption outside the blue region of the visible spectrum. The exact wavelength dependence of these absorption bands can be accurately determined using a wavelength scanning spectrophotometer. Similarly, semi-conducting particles of such materials as cadmium sulfide or zinc sulfide give rise to optical transitions due to the energy gap between their valence and conduction bands, the band gap of the material. These band gaps depend strongly on the size of the particle when the particle size is reduced to the nanometer scale and the scanning spectrophotometer can be used to characterize the optical transitions of such dopants.
+                </p>
+                <p>
+                    The typical scanning UV/VIS/Near-IR spectrometer consists of three main components. A set of polychromatic sources, typically one for the Near-IR and VIS ranges, 3 microns to ~ 0.3 microns, and one for the UV range, 0.3 microns to ~ 0.1 microns are used to provide light across the full UV to Near-IR ranges. A monochromator, typically a double pass grating monochromator, is used to provide wavelength discrimination. A set of detectors is used to measure the attenuation of the beam as it passes through the sample. A typical spectrometer will have two detectors, one for the Near-IR and VIS regions and one for the UV region.
+                </p>
+                <p>
+                    There are many factors that control the wavelength range of the spectrometer. The sources emit over limited wavelength ranges, indeed as discussed above, two sources are needed to cover the Near-IR to UV range. The spectrometer optics transmit over limited ranges, for example silica lenses are used and while they provide good UV transparency, they have a short wavelength cut-off of ~ 160 nm. Finally, the detectors also have limited ranges of sensitivity. All these factors combine to create a typical wavelength range for a typical spectrometer of ~ 190 nm to 3,200 nm. Modern instruments are fully computer automated to the point that full instrument control and data analysis routines are under the control of the typical PC controller to perform automated experiments. The instrument we will be using is the Perkin - Elmer Lambda - 19 UV/VIS Near-IR spectrometer operating under the PC Windows operating system. 
+                </p>
+                <p>
+                    In this laboratory, we used the Perkin Elmer Lambda-19 spectrometer to characterize the optical properties of a few different materials like Soda lime glass (SLS), Arsenic Sulfide (As2S3) glass, Arsenic Selenide glass (As2Se3), plastic as well as to characterize the spectral performance of the spectrometer itself.
+                </p>
+                <h3 id="components">Basic components of UV-Vis-NIR spectrometer</h3>
+                <h3>Sources</h3>
+                <p>
+                    UV/VIS sources: Deuterium lamps, tungsten halogen lamps, and mercury lamps are commonly used as UV/VIS sources. Deuterium lamps are used for the UV range (190-400 nm) and provide high intensity and stable output. Tungsten halogen lamps are used for the visible range (350-2500 nm) and provide a continuous spectrum of light. Mercury lamps are used for the UV range and provide a narrow spectral line at 254 nm.
+                </p>
+                <p>
+                    Near-IR sources: Near-IR sources are typically tungsten-halogen lamps or incandescent filaments. Light-emitting diodes (LEDs) and lasers can also be used for specific applications in the near-IR region.
+                </p>
+                <h3>Detectors</h3>
+                <p>
+                    UV/VIS detectors: Photodiodes and photomultiplier tubes (PMTs) are commonly used as detectors in UV/VIS spectrometers. Photodiodes are solid-state detectors that operate over a broad range of wavelengths and provide high sensitivity and low noise. PMTs are vacuum tubes that amplify the signal and provide high sensitivity but require higher voltage and are more expensive than photodiodes.
+                </p>
+                <p>
+                    Near-IR detectors: Near-IR detectors are typically based on either photodiodes or indium gallium arsenide (InGaAs) detectors. InGaAs detectors are sensitive to wavelengths up to about 1700 nm, while photodiodes are typically used for wavelengths up to about 1100 nm.
+                </p>
+                <h3>Grating Monochromator</h3>
+                <p>
+                    It is an optical instrument used to isolate and analyze specific wavelengths of light. It consists of a diffraction grating, which is a finely ruled surface that disperses light into its component colors, and a slit that selects a narrow band of wavelengths to pass through. The diffracted light is then focused onto a detector, such as a photomultiplier tube or a CCD array, which measures the intensity of the selected wavelengths.
+                </p>
+                <figure>
+                    <img
+                        src="./img/1.png"
+                        alt="A picture of a grating monochromator"
+                        width="376"
+                        height="226"  
+                    />
+                    <figcaption>
+                        Figure 1 - Grating Monochromator<br>
+                        <a href="http://people.whitman.edu/~dunnivfm/FAASICPMS_Ebook/CH2/Figures/F2_5_Monochromator.gif">Source</a>
+                    </figcaption>
+                </figure>
+                <p>
+                    The resolution of a grating monochromator is determined by the number of lines on the diffraction grating and the size of the entrance and exit slits. A higher number of grating lines results in a higher dispersion of the diffracted light, allowing for better separation of wavelengths and a smaller slit size is needed to achieve higher resolution, as larger slits allow more wavelengths to pass through, resulting in lower spectral purity.
+                </p>
+                <p>
+                    To improve the resolution some spectrometers, use double monochromators. This involves using two diffraction gratings and two slits, with the light passing through the first monochromator to select a broad range of wavelengths, which are then passed through a second monochromator to isolate a narrow band of wavelengths. This reduces the effect of stray light and improves the overall resolution of the instrument.
+                </p>
+                <p>
+                    A grating monochromator can achieve a resolution as low as 2 nm by using a grating with a high number of lines (such as 1200 lines/mm), and a small entrance and exit slit (such as 10 microns). However, in both cases, the light throughput is reduced considerably, and the measurement becomes very long.
+                </p>
+                <h3>Slits</h3>
+                <p>
+                    In a spectrometer, a slit is a narrow aperture that is used to select a specific range of wavelengths for analysis. Slits are typically located at the entrance and exit of the monochromator and are adjustable in width to control the spectral resolution.
+                </p>
+                <p>
+                    The slit width determines the amount of light that passes through the monochromator, and thus affects the resolution of the instrument. A narrower slit width results in higher resolution, but also reduces the amount of light that reaches the detector. Conversely, a wider slit width allows more light to reach the detector but reduces the resolution of the instrument.
+                </p>
+                <p>
+                    To maintain a constant resolution, the slit width is typically adjusted as a function of wavelength. This is because the dispersion of the monochromator varies with wavelength, meaning that a narrower slit is required at shorter wavelengths to achieve the same resolution as at longer wavelengths.
+                </p>
+                <p>
+                    The slit width decreases with decreasing wavelength to maintain a constant resolution. This is because the diffraction angle of the monochromator varies with wavelength, and a narrower slit is required to maintain the same angular resolution at shorter wavelengths. Additionally, as the wavelength decreases, the diffraction pattern becomes more spread out, so a narrower slit is needed to maintain a sharp spectral image.
+                </p>
+                <p>
+                    Sources - Demtröder, W. (2014). Experimentalphysik 3: Atome, Moleküle und Festkörper. Springer-Verlag Berlin Heidelberg.
+                </p>
+                <p>
+                    Smith, S. M., & Denton, M. B. (2013). Modern optical engineering. McGraw-Hill.
+                </p>
+                <h3>Range of UV-Vis-NIR scanning</h3>
+                <p>
+                    Operation range of UV/VIS/Near-IR spectrometer expressed in different units.
+                </p>
+                <ul>
+                    <li>200 nm to 3000 nm</li>
+                    <li>0.2 to 3 μm</li>
+                    <li>50000 to 3333.33 cm<sup>-1</sup> </li>
+                    <li>2000 to 3000 Å </li>
+                    <li>1.5x1015 to 1x1014 Hz</li>
+                    <li>6.2 to 0.41 eV.</li>
+                </ul>
+                <p>
+                    Ultraviolet-visible (UV-Vis) spectrophotometers use a light source to illuminate a sample with light across the UV to the visible wavelength range (typically 190 to 900 nm). The instruments then measure the light absorbed, transmitted, or reflected by the sample at each wavelength. Some spectrophotometers have an extended wavelength range, into the near infrared (NIR) (800 to 3200 nm).
+                </p>
+                <p>
+                    This range includes the ultraviolet, visible, and near-infrared regions of the electromagnetic spectrum, which are commonly used for chemical analysis and material characterization.
+                </p>
+                <p>
+                    The range from 200 nm to 400 nm is the UV region, which is typically used for analyzing compounds with unsaturated bonds, such as conjugated double bonds or aromatic compounds. The range from 400 nm to 700 nm is the visible region, which is used to study the electronic transitions of molecules and is often used for colorimetric analysis. The range from 700 nm to 2500 nm is the near-infrared region, which is used for analyzing functional groups such as C-H, O-H, and N-H bonds.
+                </p>
+                <p>
+                    Several factors affect the range of a UV/VIS/Near-IR spectrometer, including the properties of the detector and the optical components used in the instrument. Detectors must be sensitive to the relevant wavelengths, and optical components must be designed to transmit or reflect light in the desired range. Additionally, the range of a spectrometer may be limited by the availability of light sources that can produce the necessary wavelengths.
+                </p>
+                <h3 id="samples">Samples</h3>
+                <h3>Soda Lime Glass</h3>
+                <figure>
+                    <img
+                        src="./img/2.png"
+                        alt="Soda lime glass graph 1"
+                        width="376"
+                        height="226"
+                    />
+                    <figcaption>
+                        Figure 2 - UV-VIS-NIR transmission spectrum collected on Soda lime glass.<br>
+                    </figcaption>   
+                </figure>
+                <figure>
+                    <img
+                        src="./img/3.png"
+                        alt="Soda lime glass graph 2"
+                        width="376"
+                        height="226"
+                    />
+                    <figcaption>
+                        Figure 3 - Combined UV/VIS/NIR and IR transmission spectra of Soda lime glass.<br><br>
+                        UV cut off for this glass is 280 nm. (0.28 um, 35714.29 cm<sup>-1</sup>, 4.43 eV).<br><br>
+                        IR cut off for this glass is 5050 nm. (5.05 um, 1980.20 cm<sup>-1</sup>, 0.25 eV).
+                    </figcaption>   
+                </figure>
+                <h3>Arsenic Sulfide Glass (As<sub>2</sub>S<sub>3</sub>)</h3>
+                <figure>
+                    <img
+                        src="./img/4.png"
+                        alt="Arsenic sulfide glass graph 1"
+                        width="376"
+                        height="226"
+                    />
+                    <figcaption>
+                        Figure 4 - UV-VIS-NIR transmission spectrum collected on (As<sub>2</sub>S<sub>3</sub>).
+                    </figcaption>   
+                </figure>
+                <figure>
+                    <img
+                        src="./img/5.png"
+                        alt="Arsenic sulfide glass graph 2"
+                        width="376"
+                        height="226"
+                    />
+                    <figcaption>
+                        Figure 5 - Combined UV/VIS/NIR and IR transmission spectra of (As<sub>2</sub>S<sub>3</sub>).<br><br>
+                        UV cut off for this glass is 550 nm (0.55 um, 318181.82 cm<sup>-1</sup>, 2.26 eV). This glass is not UV transparent.<br><br>
+                        IR cut off for this glass is 22800 nm (22.8 um, 438.6 cm<sup>-1</sup>, 0.054 eV).
+                    </figcaption>   
+                </figure>
+                <h3>Arsenic Selenide Glass (As<sub>2</sub>Se<sub>3</sub>).</h3>
+                <figure>
+                    <img
+                        src="./img/6.png"
+                        alt="Arsenic selenide glass graph 1"
+                        width="376"
+                        height="226"
+                    />
+                    <figcaption>
+                        Figure 6 - UV-VIS-NIR transmission spectrum collected on (As<sub>2</sub>Se<sub>3</sub>).<br><br>
+                        UV cut off for this glass is 780 nm (0.78 um, 12820.51 cm<sup>-1</sup>, 1.59 eV). This glass is not transparent in both UV and Visible ranges of wavelengths.
+                    </figcaption>   
+                </figure>
+                <figure>
+                    <img
+                        src="./img/7.png"
+                        alt="Arsenic selenide glass graph 2"
+                        width="376"
+                        height="226"
+                    />
+                    <figcaption>
+                        Figure 7 - Combined UV/VIS/NIR and IR transmission spectra of (As<sub>2</sub>Se<sub>3</sub>).
+                    </figcaption>   
+                </figure>
+                <h3>Polymer Film</h3>
+                <figure>
+                    <img
+                        src="./img/8.png"
+                        alt="Polymer film graph 1"
+                        width="376"
+                        height="226"
+                    />
+                    <figcaption>
+                        Figure 8 - UV-VIS-NIR transmission spectrum collected on polymer film.<br><br>
+                        UV cut off for this polymer film is 315 nm.
+                    </figcaption>   
+                </figure>
+                <figure>
+                    <img
+                        src="./img/9.png"
+                        alt="Polymer film graph 2"
+                        width="376"
+                        height="226"
+                    />
+                    <figcaption>
+                        Figure 9 - Combined UV/VIS/NIR and IR transmission spectra of polymer film.<br><br>
+                        This sample did not exhibit a well-defined IR cutoff because of chromophore effect. It is more polarizable and hence less transmission.
+                    </figcaption>   
+                </figure>
+                <h3 id="calculations">Refractive Index Calculations From The Transmission Curves</h3>
+                <p>Table 1 - Index of refraction calculations of glass samples</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><strong>Glass</strong></td>
+                            <td><strong>%T</strong></td>
+                            <td><strong>λ(nm)</strong></td>
+                            <td><strong>R<sub>2</sub></strong></td>
+                            <td><strong>[R]</strong></td>
+                            <td><strong>n<sub>exp</sub></strong></td>
+                            <td><strong>n<sub>lit</sub></strong></td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Soda Lime Glass</td>
+                        <td>88</td>
+                        <td>843</td>
+                        <td>0.12</td>
+                        <td>0.245</td>
+                        <td>1.65</td>
+                        <td>1.5</td>
+                    </tr>
+                    <tr>
+                        <td>Arsenic Sulfide</td>
+                        <td>63</td>
+                        <td>970</td>
+                        <td>0.37</td>
+                        <td>0.43</td>
+                        <td>2.51</td>
+                        <td>2.45</td>
+                    </tr>
+                    <tr>
+                        <td>Arsenic Selenide</td>
+                        <td>47</td>
+                        <td>1090</td>
+                        <td>0.53</td>
+                        <td>0.515</td>
+                        <td>3.12</td>
+                        <td>2.9</td>
+                    </tr>
+                </table>
+                <p>
+                $$R_2 = 2 {(n-1)^2 \over (n+1)^2}$$
+
+                $$({R_2 \over 2})^{1 \over 2} = {n-1 \over n+1}$$
+
+                $$[R] = ({R_2 \over 2})^{1 \over 2}$$
+
+                $$n = {(1+[R]) \over (1-[R])}$$
+
+                $$For SLS, R_2 = 0.12$$
+
+                $$[R] = ({0.12 \over 2})^{1 \over 2}$$
+
+                $$[R] = 0.245$$
+
+                $$n = {(1+0.245) \over (1-0.245)}$$
+
+                $$n = 1.65$$
+
+                $$For As_2S_3, R_2 = 0.37$$
+
+                $$[R] = ({0.37 \over 2})^{1 \over 2}$$
+
+                $$[R] = 0.245$$
+
+                $$n = {(1+0.43) \over (1-0.43)}$$
+
+                $$n = 1.65$$
+
+                $$For As_2Se_3, R_2 = 0.53$$
+
+                $$[R] = ({0.53 \over 2})^{1 \over 2}$$
+
+                $$[R] = 0.245$$
+
+                $$n = {(1+0.515) \over (1-0.515)}$$
+
+                $$n = 1.65$$
+            </p>
+            </article>
+        </main>
+        <footer>
+            <strong>
+                <em>Author: </em> Harika Chowdary Dasari
+            </strong>
+        </footer>
+    </body>
+</html>
